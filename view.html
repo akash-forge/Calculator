@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/calc.css">
+    <title>Calculator</title>
+</head>
+
+<body>
+    <h1>Calculator</h1>
+    <table class="table">
+        <tr>
+            <th><button class="button" onclick="clickfunc(1,1)">1</button></th>
+            <th><button class="button" onclick="clickfunc(2,2)">2</button></th>
+            <th><button class="button" onclick="clickfunc(3,3)">3</button></th>
+            <th><button class="button" onclick="clickfunc(0,0)">0</button></th>
+            <th><button class="button" onclick="clickfunc1('*')">*</button></th>
+            <th><button class="button" onclick="clickfunc2()">clr</button></th>
+        </tr>
+        <tr>
+            <th><button class="button" onclick="clickfunc(4,4)">4</button></th>
+            <th><button class="button" onclick="clickfunc(5,5)">5</button></th>
+            <th><button class="button" onclick="clickfunc(6,6)">6</button></th>
+            <th><button class="button" onclick="clickfunc1('+')">+</button></th>
+            <th><button class="button" onclick="clickfunc1('/')">/</button></th>
+        </tr>
+        <tr>
+            <th><button class="button" onclick="clickfunc(7,7)">7</button></th>
+            <th><button class="button" onclick="clickfunc(8,8)">8</button></th>
+            <th><button class="button" onclick="clickfunc(9,9)">9</button></th>
+            <th><button class="button" onclick="clickfunc1('-')">-</button></th>
+            <th><button class="button" onclick="result()">=</button></th>
+        </tr>
+    </table>
+    <table class="table1">
+        <tr>
+            <th id="value"></th>
+        </tr>
+    </table>
+    <script>
+        var firstnum = document.getElementById("value").innerHTML;
+        var operator = document.getElementById("value").innerHTML;
+        var secondnum = document.getElementById("value").innerHTML;
+        var resultvalue = document.getElementById("value").innerHTML;
+        var del = document.getElementById("value").innerHTML;
+
+        function clickfunc(a, b) {
+            if (!operator) {
+                firstnum = firstnum + a;
+                document.getElementById("value").innerHTML = firstnum;
+                console.log(firstnum);
+            } else {
+                secondnum = secondnum + b;
+                document.getElementById("value").innerHTML = firstnum + operator + secondnum;
+                console.log(secondnum);
+            }
+        }
+
+        function clickfunc1(c) {
+            operator = c;
+            document.getElementById("value").innerHTML = firstnum + operator;
+            console.log(operator);
+        }
+
+        function result() {
+            if (operator == "+") {
+                resultvalue = parseInt(firstnum) + parseInt(secondnum);
+                console.log(resultvalue);
+            } else if (operator == "-") {
+                resultvalue = parseInt(firstnum) - parseInt(secondnum);
+                console.log(resultvalue);
+            } else if (operator == "*") {
+                resultvalue = parseInt(firstnum) * parseInt(secondnum);
+                console.log(resultvalue);
+            } else if (operator == "/") {
+                resultvalue = parseInt(firstnum) / parseInt(secondnum);
+                console.log(resultvalue);
+            } else {
+                resultvalue = "synatx error";
+            }
+            document.getElementById("value").innerHTML = firstnum + operator + secondnum + "=" + resultvalue;
+        }
+        function clickfunc2() {
+            firstnum = "";
+            operator = "";
+            secondnum = "";
+            document.getElementById("value").innerHTML = firstnum + operator + secondnum;
+        }
+    </script>
+</body>
+
+</html>

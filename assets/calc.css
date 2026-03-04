@@ -1,0 +1,16 @@
+.table{
+    height: 30vh;
+    width: 30vw;
+}
+.button{
+    height: 5vh;
+    width: 5vw;
+    font-size: large;
+}
+.table1{
+    border: 1px solid black;
+    height: 10vh;
+    width: 30vw;
+    font-size: larger;
+    font-weight: bold;
+}
